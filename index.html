@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>erVALENTINEdi ❤️</title>
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: #ffe6f0;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background: #ff4d6d;
+      color: white;
+      width: 120px;
+      height: 60px;
+    }
+
+    #noBtn {
+      background: #999;
+      color: white;
+      width: 120px;
+      height: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Will you be my Valentine? 💕</h1>
+
+  <div class="buttons">
+    <button id="yesBtn">YES 💖</button>
+    <button id="noBtn">NO 😢</button>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+
+    let yesSize = 120;
+    let noSize = 120;
+
+    const noTexts = [
+      "Are you sure?",
+      "Really sure?",
+      "Think again 😭",
+      "Last chance!",
+      "You don't mean that 💔",
+      "Come on 😢",
+      "PLEASE 🥺"
+    ];
+
+    let clickCount = 0;
+
+    noBtn.addEventListener("click", () => {
+      noBtn.textContent = noTexts[clickCount % noTexts.length];
+      clickCount++;
+
+      yesSize += 30;
+      noSize -= 15;
+
+      yesBtn.style.width = yesSize + "px";
+      yesBtn.style.height = yesSize / 2 + "px";
+
+      if (noSize > 20) {
+        noBtn.style.width = noSize + "px";
+        noBtn.style.height = noSize / 2 + "px";
+      } else {
+        noBtn.style.display = "none";
+      }
+    });
+
+    yesBtn.addEventListener("click", () => {
+      document.body.innerHTML = `
+        <h1>YAYYY ❤️🥰</h1>
+        <p>You are my Valentine 💘</p>
+      `;
+    });
+  </script>
+
+</body>
+</html>
